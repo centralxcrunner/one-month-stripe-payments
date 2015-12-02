@@ -50,21 +50,35 @@
         <div class="col-md-4">
           <h2>Subscribe</h2>
           <p>Mercury Coffee is $30 per month.  Because supply is so limited, we only ship one bag per month.  If you are interested in receiving more than one bage, please contact us and well be happy to se if we can accomodate you.<p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-
-          		<%= form_tag charges_path do %>
-					 <article>
-					   <label class="amount">
-					     <span>Amount: $5.00</span>
-					   </label>
-					</article>
-
-					 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-					   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-					   data-description="A month's subscription"
-					   data-amount="500"></script>
-				<% end %>	
+          
+          <p>
+          <!-- <a class="btn btn-default" href="#" role="button">View details &raquo;</a> -->
+			<%= form_tag charges_path, id: 'chargeForm' do %>
+			    <script src="https://checkout.stripe.com/checkout.js"></script>
+			    <%= hidden_field_tag 'stripeToken' %>
+			    <%= hidden_field_tag 'stripeEmail' %>  
+			    <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Subscribe!</button>
+			    <script>
+			    var handler = StripeCheckout.configure({
+			      key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+			      token: function(token, arg) {
+			        document.getElementById("stripeToken").value = token.id;
+			        document.getElementById("stripeEmail").value = token.email;
+			        document.getElementById("chargeForm").submit();
+			      }
+			    });
+			     document.getElementById('btn-buy').addEventListener('click', function(e) {
+			      handler.open({
+			        name: 'Mercury Coffee',
+			        description: '12oz monthly subscription ($30)',
+			        amount: 3000
+			    });
+			    e.preventDefault();
+			   })
+			  </script>
+			<% end %>
           </p>
+
        </div>
       </div>
       <div class="row contact row-top-padding">  
