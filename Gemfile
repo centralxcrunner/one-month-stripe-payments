@@ -29,6 +29,9 @@ gem 'letter_opener', group: :development
 # Add active admin
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+# Add devise
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
