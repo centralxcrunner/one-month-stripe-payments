@@ -26,6 +26,8 @@ gem 'figaro'
 # Add letter opener for using Sendgrid in development
 gem 'letter_opener', group: :development
 
+# Add active admin
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
