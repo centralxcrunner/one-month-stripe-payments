@@ -2,16 +2,14 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>30 Frank</h1>
-        <p>We roast 30 lbs of coffee a month, do you want in?</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <h1 class="open-title">We roast 30 lbs of coffee a month. Do you want in?</h1>
       </div>
     </div>
 
     <div class="container-fluid container-home about" id="about">
       
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-4">
           <h2>Roasted 1lb at a time</h2>
           <p>We hand roast each pound of coffee.  That means your coffee is literally hand roasted and inspected to pass our rigorous standards.  We ship the coffee same day so that it arrives, ready for drinking, at peak flavor.  The process is intentional from start to finish so you get the best coffee and drinking experience possible.</p>
         </div>
@@ -21,7 +19,7 @@
     
     <div class="container-fluid container-home subscribe" id="subscribe">  
       <div class="row">  
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-4">
           <h2>1/30</h2>
           <p>We limit 30 Frank to just 30 customers to ensure an authentic experience for you.  Sign up to join our waitlist when a spot opens up<p>
           
@@ -31,8 +29,8 @@
 			    <script src="https://checkout.stripe.com/checkout.js"></script>
 			    <%= hidden_field_tag 'stripeToken' %>
 			    <%= hidden_field_tag 'stripeEmail' %>
-			    <%= hidden_field_tag 'amount', 3000 %>    
-			    <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Subscribe!</button>
+			    <%= hidden_field_tag 'amount', 9000 %>    
+			    <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block">Subscribe</button>
 			    <script>
 			    var handler = StripeCheckout.configure({
 			      key: '<%= Rails.configuration.stripe[:publishable_key] %>',
@@ -44,9 +42,11 @@
 			    });
 			     document.getElementById('btn-buy').addEventListener('click', function(e) {
 			      handler.open({
-			        name: 'Mercury Coffee',
-			        description: '12oz monthly subscription ($30)',
-			        amount: document.getElementById("amount").value
+			        name: '30 Frank Coffee',
+			        description: '12oz 3 month subscription ($90)',
+			        amount: document.getElementById("amount").value,
+              shippingAddress: 'true',
+              image: '<%= asset_path 'stripe.jpeg' %>'
 			    });
 			    e.preventDefault();
 			   })
@@ -60,7 +60,7 @@
     
     <div class="container-fluid container-home contact" id="contact">  
       <div class="row">  
-        <div class="col-md-4">
+        <div class="col-md-4 col-md-offset-4">
           <h2>It's About You</h2>
           <p>Please contact us.  We roast 30 Frank Coffee because we love hand roasted and cared for coffee.  are you 1/30?.</p>
           <p><a class="btn btn-default" href="#" role="button">Contact &raquo;</a></p>
@@ -72,7 +72,7 @@
       <hr>
 
       <footer>
-        <p>&copy; 2015 Mercury Coffee, Inc.</p>
+        <p>&copy; 2015 30 Frank Coffee, Inc.</p>
       </footer>
     </div> <!-- /container -->
 
