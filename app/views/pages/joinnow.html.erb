@@ -1,0 +1,77 @@
+
+<div class="container-fluid container-details" id="">
+      
+    <div class="row">
+        <div class="col-md-4">
+          <h2>The First Time</h2>
+          <p>30 Frank is $30 a month for 12oz of Coffee.  We ask that you pay for 3 months to join and then we bill you $30 a month starting on the 4th month.  You may cancel at anytime.  Your first shipment arrives in a 30 Frank storage container that you can refill each month when your coffee arrives</p>
+        </div>
+
+        <div class="col-md-4">
+          <h2>Each Month</h2>
+          <p>We send you your coffee at the start of each month, we roast on Saturday and ship the same day so that your coffee arrives Monday or Tuesday.  When your coffee arrives, immediately transfer it to your 30 Frank airtight container.  Each shipment will arrive with a custom card telling you about your specific coffee </p>
+        </div>	
+
+        <div class="col-md-4">
+          <h2>Costs</h2>
+          <p>30 Frank is $30 a month.  To join, each member pays for 3 months up front, and we begin billing you monthly on the 4th month.  You may cancel at anytime.  If you are not completely satisfied we will refund you for that month.</p>
+        </div>
+
+    </div>
+
+
+</div>
+
+    <div class="container-fluid container-home subscribe" id="subscribe">  
+          <div class="row">  
+            <div class="col-md-4 col-md-offset-4">
+              <h2>1/30</h2>
+              <p>We limit 30 Frank to just 30 customers to ensure an authentic experience for you.  Join a community of folks who are looking for those perfect moments.<p>
+              
+              <p>
+              <!-- <a class="btn btn-default" href="#" role="button">View details &raquo;</a> -->
+          <%= form_tag charges_path, id: 'chargeForm' do %>
+              <script src="https://checkout.stripe.com/checkout.js"></script>
+              <%= hidden_field_tag 'stripeToken' %>
+              <%= hidden_field_tag 'stripeEmail' %>
+              <%= hidden_field_tag 'amount', 9000 %>    
+              <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block">Join 30 Frank</button>
+              <script>
+              var handler = StripeCheckout.configure({
+                key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+                token: function(token, arg) {
+                  document.getElementById("stripeToken").value = token.id;
+                  document.getElementById("stripeEmail").value = token.email;
+                  document.getElementById("chargeForm").submit();
+                }
+              });
+               document.getElementById('btn-buy').addEventListener('click', function(e) {
+                handler.open({
+                  name: '30 Frank Coffee',
+                  description: '12oz 3 month subscription ($90)',
+                  amount: document.getElementById("amount").value,
+                  shippingAddress: 'true',
+                  image: '<%= asset_path 'stripe.jpeg' %>'
+              });
+              e.preventDefault();
+             })
+            </script>
+          <% end %>
+              </p>
+
+           </div>
+          </div>
+        </div>
+
+
+    <div class="container-fluid">
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 30 Frank Coffee, Inc. <a href="mailto:christopher.kosednar@gmail.com">Contact Us</a></p> 
+      </footer>
+    </div> <!-- /container -->
+
+
+  </body>
+</html>

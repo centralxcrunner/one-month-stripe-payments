@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   # Route for showing purchases
   resources :purchases, only: [:show]
 
+  # Route for showing details page
+
+  get '/join-now' => 'pages#joinnow'
+
+  get '/30-people' => 'pages#thirtypeople'
+
+  get '/our-coffee' => 'pages#ourcoffee'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
