@@ -1,28 +1,84 @@
 .about {
 	background: url('<%= asset_path 'aboutbg.jpg' %>');
 	background-size: cover;
-	padding-left: 0;
 }
 
 .about-column {
-	padding-left: 5%;
+	padding-left: 3%;
 	padding-right: 3%;
 }
 
 .subscribe {
 	background: url('<%= asset_path 'subscribebg.jpg' %>');
 	background-size: cover;
+	color: white;
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 50px;
+}
+
+.subscribe p {
+	margin-bottom: 30px;
+}
+
+.sub-column {
+	background:rgba(0,0,0,0.7);
+	min-height: 400px;
+	padding-top: 100px;
+	padding-left: 40px;
+	padding-right: 40px;
+
+}
+
+.sub-button {
+	text-align: center;
 }
 
 .you {
 	background: url('<%= asset_path 'contactbg.jpg' %>');
 	background-size: cover;
-	padding-right: 0;
+}
+
+.jumbotron {
+	background: url('<%= asset_path '30franklogobg.png' %>');
+	background-size: cover;
+	color: white; 
+	min-height: 680px;
+	text-align: center;
+}
+
+.jumbotron .container .row .col-md-8 {
+	color: black;
+	margin-top: 100px;
+	padding: 1px;
+	border: 3px solid white;
+}
+
+.jumbotron h1 {
+	margin-top: 80px;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
+	font-size: 40px;
+}
+
+.jumbotron h2 {
+	margin-bottom: 40px;
+	margin-top: 5px;
+	font-size: 20px;
+}
+
+.outline {
+	border: 1px solid rgba(0, 0, 0, 0.9);
+	background: white;
+}
+
+.cta-button {
+	margin-top: 40px;
+	padding-bottom: 40px;
+	color: white;
 }
 
 .you-column {
-	padding-left: 3%;
-	padding-right: 5%;
 }
 
 
@@ -51,8 +107,12 @@
 	margin-right: auto;
 }
 
+a:visited, a:hover, a:active {
+  color: inherit;
+}
+
 .container-home .row .col-md-6 {
-	background:rgba(0,0,0,0.7);
+	background:rgba(0,0,0,0.5);
   	color: #ffffff;
 }
 
@@ -69,10 +129,11 @@
 
 .container-details {
 	padding-top: 100px;
+	padding-bottom: 50px;
 }
 
 .transparent {
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.4);
   color: #ffffff;
 }
 
@@ -100,4 +161,26 @@
 
 .frontpage-row-height {
 	min-height: 400px;
+}
+
+
+body {
+	font-family: 'Questrial', sans-serif;
+}
+
+
+h4 {
+	line-height: 1.5em;
+	margin-bottom: 20px;
+}
+
+#btn-buy {
+	color: white;
+	border: 0px solid green;
+	text-shadow: none;
+	min-width: 200px;
+}
+
+#btn-buy:hover {
+	background: #4cae4c;
 }
