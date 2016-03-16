@@ -1,8 +1,41 @@
 /*********************************** SITE WIDE **************************************************/
+@font-face {
+  font-family: 'dolce';
+  src:url('<%= asset_path('dolce.ttf') %>');
+  src:url('<%= asset_path('dolce.ttf') %>') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gothambook';
+  src:url('<%= asset_path('gothambook.ttf') %>');
+  src:url('<%= asset_path('gothambook.ttf') %>') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gothammedium';
+  src:url('<%= asset_path('gothammedium.ttf') %>');
+  src:url('<%= asset_path('gothammedium.ttf') %>') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'didotlight';
+  src:url('<%= asset_path('didotlight.otf') %>');
+  src:url('<%= asset_path('didotlight.otf') %>') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 .outline {
 	border: 1px solid rgba(0, 0, 0, 1);
-	background: white;
+	background: rgba(255, 255, 255, 0.9);
 }
 
 a:visited, a:hover, a:active {
@@ -19,7 +52,7 @@ a:visited, a:hover, a:active {
 }
 
 body {
-	font-family: 'Questrial', sans-serif;
+	font-family: 'gothambook', sans-serif;
 }
 
 
@@ -27,6 +60,9 @@ h4 {
 	line-height: 1.5em;
 	margin-bottom: 20px;
 }
+
+
+
 
 
 /*********************************** MAIN NAV **************************************************/
@@ -39,16 +75,20 @@ h4 {
 	text-decoration: none;
 }
 
+nav {
+	font-family: 'dolce', sans-serif;
+}
+
 /*********************************** HOME SCREEN **************************************************/
 
 .jumbotron {
 	background: url('<%= asset_path '30franklogobg.png' %>');
 	background-size: cover;
-	color: white; 
-	min-height: 680px;
+	min-height: 720px;
 	text-align: center;
 	padding-top: 50px;
 	margin-bottom: 0px;
+	padding-bottom: 60px;
 }
 
 .jumbotron .container .row .col-md-8, .jumbotron .container .row .col-md-4 {
@@ -62,19 +102,36 @@ h4 {
 	margin-top: 80px;
 	padding-bottom: 10px;
 	margin-bottom: 0px;
-	font-size: 40px;
+	font-size: 30px;
+	font-family: 'gothammedium', sans-serif;
 }
 
 .jumbotron h2 {
 	margin-bottom: 40px;
 	margin-top: 5px;
 	font-size: 20px;
+	font-family: 'gothambook', sans-serif;
+}
+
+.jumbotron h5 {
+	font-family: 'didotlight', serif;
+	font-size: 1.25em;
 }
 
 .cta-button {
 	margin-top: 40px;
 	padding-bottom: 40px;
 	color: white;
+	font-family: 'dolce', sans-serif;
+}
+
+.btn-success {
+	background: black;
+	border: none;
+}
+
+.btn-success:hover {
+	background:rgb(212,175,55);
 }
 
 .home {
@@ -83,6 +140,7 @@ h4 {
 	padding-left: 0%;
 	margin-left: auto;
 	margin-right: auto;
+	background: rgba(0,0,0,0.3);
 }
 
 .home .col-md-6 {
@@ -95,12 +153,13 @@ h4 {
 	padding-top: 20%;
 	padding-bottom: 10px;
 	margin-top: 0;
+	font-family: 'didotlight', serif;
 }	
 
 .home p {
 	padding-bottom: 0px;
 	margin-bottom: 0px;
-	margin-top: 20px;
+	margin-top: 40px;
 }
 
 #ourcoffee {
@@ -113,22 +172,37 @@ h4 {
 	padding-right: 3%;
 }
 
+.btn-primary {
+	color: black;
+	background: white;
+	border: none;
+}
+
+.btn-primary:hover {
+	background: rgb(212,175,55);
+	color: black;
+}
+
 #thirtypeople {
 	background: url('<%= asset_path 'contactbg.jpg' %>');
 	background-size: cover;
 }
 
 #joinnow {
-	background: url('<%= asset_path 'subscribebg.jpg' %>');
-	background-size: cover;
 }
 
 
 /*********************************** OUR COFFEE **************************************************/
 
-.container-details {
-	padding-top: 100px;
+.container-details .row {
+	padding-top: 50px;
 	padding-bottom: 50px;
+	background: black;
+	color: white;
+}
+
+.container-details h2 {
+	text-align: center;
 }
 
 .our-coffee h1 {
@@ -142,31 +216,34 @@ h4 {
 
 /*********************************** JOIN NOW **************************************************/
 
-.subscribe {
+#subscribe {
 	background: url('<%= asset_path 'subscribebg.jpg' %>');
 	background-size: cover;
+}
+
+.sub-jumbotron {
 	color: white;
 	text-align: center;
 	padding-top: 200px;
 	padding-bottom: 200px;
 }
 
-.subscribe h1 {
+.sub-jumbotron h1 {
 	margin-top: 50px;
 }
 
-.subscribe p {
+.sub-jumbotron p {
 	margin-bottom: 30px;
 	margin-top: 20px;
 }
 
-.sub-column {
+.sub-jumbo-column {
 	color: black;
 	padding: 1px;
 	border: 3px solid white;
 }
 
-.sub-column p {
+.sub-jumbo-column p {
 	padding-left: 20px;
 	padding-right: 20px;
 }
